@@ -24,18 +24,19 @@ function ArticlesDetails({article}) {
           <div className="detail_header">
               <div><span onClick={() => router.back()} style={{cursor:"pointer"}}><i class="uil uil-history-alt details_icon"></i>Back</span></div>
               <div className="share_buttons">
-              <span ><i class="uil uil-facebook details_icon"></i>Share</span>
-              <span><i class="uil uil-instagram-alt details_icon"></i>Share</span>
-              <span><i class="uil uil-twitter details_icon"></i>Share</span>
-              <span><i class="uil uil-whatsapp-alt details_icon"></i>Share</span>
+              <span ><i class="uil uil-facebook details_icon"></i><span className="share_button">Share</span></span>
+              <span><i class="uil uil-instagram-alt details_icon"></i><span className="share_button">Share</span></span>
+              <span><i class="uil uil-twitter details_icon"></i><span className="share_button">Share</span></span>
+              <span><i class="uil uil-whatsapp-alt details_icon"></i><span className="share_button">Share</span></span>
               </div>
           </div>
 
           <hr />
 
           <div className="blog_post_details">
-              <p>{moment(article.createdAt).format("MMM Do YY")}</p>
+              
               <h3>{article.title}</h3>
+              <p>{moment(article.createdAt).format("MMM Do YY")}</p>
               <div className="content_container">
                   <div className="content_section">
                   <div
