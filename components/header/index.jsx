@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 function Header({className}) {
     const [scrollPosition, setScrollPosition] = React.useState(0);
@@ -18,7 +19,7 @@ function Header({className}) {
     return (
         <header className={`header ${scrollPosition >= "80" ? "scroll-header" : ""}`}>
             <div className="nav_container container">
-              <div className="logo">The Halftimers</div>
+              <div className="logo"><Link href="/"><a>The Halftimers</a></Link></div>
               <button className="button_secondary header_button"><i class="uil uil-align-justify"></i></button>
             </div>
         </header>

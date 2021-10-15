@@ -1,26 +1,35 @@
-import React from 'react'
+import React from 'react';
+import moment from "moment";
+import Link from 'next/link';
 
-function CustomCards() {
+function CustomCards({article}) {
     return (
         <div className="card_container">
-           <img src="https://www.a2hosting.com/blog/content/uploads/2018/07/man-holding-camera.png" alt="" className="card_img" />
+           <img src={article.image?.url} alt="" className="card_img" />
            <div className="card_contents">
                <div className="card_meta">
                    <span className="post_title">
-                   Aug 11 1 min
+                   {moment(article.createdAt).format("MMM Do YY")}
                    </span>
                </div>
                <h2 className="card_title">
-                   This is the first post card
+               {`${article.title.length > 45 ? article.title.substring(0, 45) + "..." : article.title}`}
                </h2>
                <p className="card_description">
-               Create a blog post subtitle that summarizes your post in a
-               few short, punchy sentences and entices your audience to 
-               continue reading....
+               {`${article.description.length >= 100 ? article.description.substring(0,100) + "..." : article.description}`}
                </p>
+
+
+               <Link href={`/articles/${encodeURIComponent(article.slug)}`}>
+                  <a>
               <span className="button button--flex button--small button--link card_button">
+              
                 Read More <i className="uil uil-arrow-right button_icon"></i>
+               
               </span>
+              </a>
+                </Link>
+
            </div>
         </div>
     )

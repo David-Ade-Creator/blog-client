@@ -28,7 +28,7 @@ function Layout({ children }) {
       </Head>
       {/* <Sticky innerZ={1001} top={0} onStateChange={handleStateChange}> */}
         <Header className={`${isSticky ? "sticky" : "unSticky"}`} />
-        <main>{children}</main>
+        <main id="page_container">{children}</main>
         <Footer />
       {/* </Sticky> */}
     </React.Fragment>
