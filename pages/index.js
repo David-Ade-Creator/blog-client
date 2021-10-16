@@ -1,33 +1,30 @@
 import React from "react";
 import { Banner, Layout } from "../components/layouts";
-import CustomCards from "../components/layouts/card";
-import NProgress from "nprogress";
+import HomeBlogs from "../components/layouts/Homeblogs";
 
 export default function Home(props) {
   const { articles } = props;
-  const [blogs, setBlogs] = React.useState([]);
+  const [latest, setLatest] = React.useState([]);
+  const [ChampionsLeague, setChampionsLeague] = React.useState([]);
+  const [league, setleague] = React.useState([]);
+  const [transfer, setTransfer] = React.useState([]);
+
 
   React.useEffect(() => {
-    setBlogs(articles);
+    setLatest(articles.filter(article => article.category?.name === "toprated"));
+    setChampionsLeague(articles.filter(article => article.category?.name === "championsleague"));
+    setleague(articles.filter(article => article.category?.name === "leagues"));
+    setTransfer(articles.filter(article => article.category?.name === "transfers"));
   }, [articles]);
+
 
   return (
     <Layout>
       <Banner />
-      <section className="blogs section">
-        <h2 className="section_title">Latest blogs</h2>
-        <span className="section_subtitle">
-          Keep yourself up to date with the latest football news
-        </span>
-        <div className="home_cards_container container">
-          {blogs.map(
-            (singleBlog, i) => i < 6 && <CustomCards article={singleBlog} key={singleBlog._id} />
-          )}
-        </div>
-        <div className="more_container container">
-          <span className="button_primary">Read more</span>
-        </div>
-      </section>
+      <HomeBlogs blogs={latest} noLink title="Latest News" subtitle="Stay updated with latest news in the footbal world" />
+      <HomeBlogs blogs={transfer} readMoreLink="/transfer" title="Transfer News" subtitle="Stay updated with transfer news in the footbal world" />
+      <HomeBlogs blogs={ChampionsLeague} readMoreLink="/championsleague"  title="Champions League" subtitle="Read latest and updated champions league news" />
+      <HomeBlogs blogs={league} readMoreLink="/leagues" title="Leagues" subtitle="Latest news from all football leagues worldwide" />
     </Layout>
   );
 }

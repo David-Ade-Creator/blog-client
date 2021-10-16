@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-function Header({className}) {
+function Header() {
     const [scrollPosition, setScrollPosition] = React.useState(0);
     const [navbarVisible, setNavbarVisible] = React.useState(false);
 
@@ -27,11 +27,10 @@ function Header({className}) {
             <div className="nav_container container">
               <div className="logo"><Link href="/"><a>The Halftimers</a></Link></div>
               <ul className={`nav_links_container ${navbarVisible ? "show_nav_links" : ""}`}>
-                  <li><Link href="/transfer"><a className="nav_link">Transfer</a></Link></li>
+                  <li ><Link href="/transfer"><a className="nav_link active_link">Transfer</a></Link></li>
                   <li ><Link href="/championsleague"><a className="nav_link">Champions-League</a></Link></li>
                   <li ><Link href="/league"><a className="nav_link">League</a></Link></li>
-                  <li ><Link href="/international"><a className="nav_link">International</a></Link></li>
-                  <li ><Link href="/videos"><a className="nav_link">Vidoes</a></Link></li>
+                 
               </ul>
               <span className="button_secondary header_button" onClick={toggleNavbar}><i class="uil uil-align-justify"></i></span>
             </div>
