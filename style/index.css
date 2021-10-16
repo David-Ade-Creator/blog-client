@@ -232,7 +232,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 50vh;
+    min-height: 25vh;
     padding: var(--header-height) 1rem 1rem 1rem;
     margin: 0;
     gap: 2rem;
